@@ -55,12 +55,11 @@ public class Main {
 
         }
 
-        TextEncryption textEncryption=new TextEncryption();
         String inputFilePath = "src/main/resources/txts/git.txt";
         String outputFilePath = "src/main/resources/txts/git_encrypted.txt";
 
         try {
-            textEncryption.encryptFile(inputFilePath, outputFilePath);
+            TextEncryption.encryptFile(inputFilePath, outputFilePath);
             System.out.println("文件加密完成！");
         } catch (IOException e) {
             e.printStackTrace();

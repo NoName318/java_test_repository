@@ -6,11 +6,11 @@ public class TextEncryption {
     private static final String KEY = "secretKey"; // 加密密钥
 
     // 异或加密方法
-    private static String xorEncrypt(String input, String key) {
+    private static String xorEncrypt(String input) {
         StringBuilder output = new StringBuilder();
         for (int i = 0; i < input.length(); i++) {
             char inputChar = input.charAt(i);
-            char keyChar = key.charAt(i % key.length());
+            char keyChar = TextEncryption.KEY.charAt(i % TextEncryption.KEY.length());
             output.append((char) (inputChar ^ keyChar)); // 异或运算
         }
         return output.toString();
@@ -41,7 +41,7 @@ public class TextEncryption {
         String originalText = readFile(inputFilePath);
 
         // 加密内容
-        String encryptedText = xorEncrypt(originalText, KEY);
+        String encryptedText = xorEncrypt(originalText);
 
         // 写入加密后的内容
         writeFile(outputFilePath, encryptedText);
