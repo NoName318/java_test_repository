@@ -1,7 +1,10 @@
 import com.example.enumExample.COLOR;
+import com.example.ioExample.TextEncryption;
 import com.example.multiThreadingExample.CountTask;
 import com.example.genericsExample.ReverseTree;
 import com.example.multiThreadingExample.ShardCount;
+
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args){
@@ -45,12 +48,23 @@ public class Main {
         ShardCount shardCount=new ShardCount();
         int threadCount=5; //创建5个线程
 
-        for (int i = 0; i <threadCount; i++) {
-            Runnable task=new CountTask(shardCount,10);
-            Thread thread=new Thread(task);
-            thread.start(); //thread.start()启动CountTask的run方法，该方法接收ShardCount类的对象shardCount，用于执行该类的方法increment() times次。
+//        for (int i = 0; i <threadCount; i++) {
+//            Runnable task=new CountTask(shardCount,10);
+//            Thread thread=new Thread(task);
+//            thread.start(); //thread.start()启动CountTask的run方法，该方法接收ShardCount类的对象shardCount，用于执行该类的方法increment() times次。
+//
+//        }
 
-        }
+//        TextEncryption textEncryption=new TextEncryption();
+//        String inputFilePath = "src/main/resources/txts/git.txt";
+//        String outputFilePath = "src/main/resources/txts/git_encrypted.txt";
+//
+//        try {
+//            textEncryption.encryptFile(inputFilePath, outputFilePath);
+//            System.out.println("文件加密完成！");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
     }
 }
