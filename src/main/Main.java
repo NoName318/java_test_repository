@@ -1,4 +1,7 @@
-import com.example.Generics;
+import com.example.enumExample.COLOR;
+import com.example.multiThreadingExample.CountTask;
+import com.example.genericsExample.ReverseTree;
+import com.example.multiThreadingExample.ShardCount;
 
 public class Main {
     public static void main(String[] args){
@@ -18,9 +21,9 @@ public class Main {
 //        Generics.printArray(doubleArray);
 
         // 测试 Generics 类
-        Generics<String> x1 = new Generics<>("1");//x1有值但无指向
-        Generics<String> x2 = new Generics<>(x1);//x2无值但指向x1
-        Generics<String> x3 = new Generics<>("3");//x3有值但无指向
+        ReverseTree<String> x1 = new ReverseTree<>("1");//x1有值但无指向
+        ReverseTree<String> x2 = new ReverseTree<>(x1);//x2无值但指向x1
+        ReverseTree<String> x3 = new ReverseTree<>("3");//x3有值但无指向
 
         System.out.println(x1);
         System.out.println(x2);
@@ -34,6 +37,20 @@ public class Main {
         System.out.println(x1);
         System.out.println(x2);
         System.out.println(x3);
+
+        COLOR color=COLOR.RED;
+
+        System.out.println(color);
+
+        ShardCount shardCount=new ShardCount();
+        int threadCount=5; //创建5个线程
+
+        for (int i = 0; i <threadCount; i++) {
+            Runnable task=new CountTask(shardCount,10);
+            Thread thread=new Thread(task);
+            thread.start(); //thread.start()启动CountTask的run方法，该方法接收ShardCount类的对象shardCount，用于执行该类的方法increment() times次。
+
+        }
 
     }
 }
